@@ -1,0 +1,6 @@
+{
+  "name": "AICraft — Cinematic AI Film & Video Production Studio",
+  "description": "Full-stack cinematic AI film & video production studio powered by a 12-agent orchestration pipeline.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

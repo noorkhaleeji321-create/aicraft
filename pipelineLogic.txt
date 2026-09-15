@@ -1,0 +1,116 @@
+async function executeMasterPipelineJob(job: any) {
+  const project = db.getProjectById(job.projectId);
+  if (!project) {
+    db.updateJob(job.id, { status: 'failed', error: 'Project not found' });
+    return;
+  }
+
+  if (project.pipelineStatus !== 'running') {
+    db.updateJob(job.id, { status: 'completed', progress: 100 });
+    return;
+  }
+
+  const allJobs = db.getJobs().filter((j: any) => j.projectId === project.id && j.id !== job.id);
+  const runningOrQueued = allJobs.filter((j: any) => j.status === 'running' || j.status === 'queued');
+  
+  if (runningOrQueued.length > 0) {
+    db.updateJob(job.id, { status: 'queued', progress: 50 });
+    return;
+  }
+
+  const failedJobs = allJobs.filter((j: any) => j.status === 'failed');
+  if (failedJobs.length > 0) {
+    const latestFailed = failedJobs.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())[0];
+    const latestCompleted = allJobs.filter(j => j.status === 'completed').sort((a, b) => new Date(b.finishedAt || b.createdAt).getTime() - new Date(a.finishedAt || a.createdAt).getTime())[0];
+    
+    if (!latestCompleted || new Date(latestFailed.createdAt).getTime() > new Date(latestCompleted.createdAt).getTime()) {
+      db.updateProject(project.id, { pipelineStatus: 'failed' });
+      db.updateJob(job.id, { status: 'failed', error: 'A required stage failed. Pipeline paused.' });
+      return;
+    }
+  }
+
+  if (project.currentStage === 'CONTINUITY') {
+    const latestContinuity = allJobs.filter(j => j.type === 'CONTINUITY_CHECK' && j.status === 'completed').sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())[0];
+    if (latestContinuity && latestContinuity.resultData?.status === 'critical_issues') {
+      db.updateProject(project.id, { 
+        currentStage: 'VIDEO_GENERATION', 
+        pipelineRegenerationCount: (project.pipelineRegenerationCount || 0) + 1 
+      });
+      db.addJob({ id: `job_${Date.now()}_video_gen_retry`, projectId: project.id, type: 'PROJECT_VIDEO_GEN', status: 'queued', progress: 0, provider: 'Gemini', costCredits: 0, createdAt: new Date().toISOString() });
+      db.updateJob(job.id, { status: 'queued', progress: 50 });
+      return;
+    }
+  }
+
+  if (project.currentStage === 'QUALITY_CONTROL') {
+    const latestQC = allJobs.filter(j => j.type === 'QC_CHECK' && j.status === 'completed').sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())[0];
+    if (latestQC && latestQC.resultData?.overallStatus === 'FAIL') {
+      db.updateProject(project.id, { 
+        currentStage: 'VIDEO_GENERATION', 
+        pipelineRegenerationCount: (project.pipelineRegenerationCount || 0) + 1 
+      });
+      if (latestQC.resultData?.targetRegenerations && latestQC.resultData.targetRegenerations.length > 0) {
+        for (const shotId of latestQC.resultData.targetRegenerations) {
+          db.addJob({ id: `job_${Date.now()}_shot_${shotId}`, projectId: project.id, type: 'SHOT_VIDEO_GEN', status: 'queued', progress: 0, targetId: shotId, provider: 'Gemini', costCredits: 0, createdAt: new Date().toISOString() });
+        }
+      } else {
+        db.addJob({ id: `job_${Date.now()}_video_gen_retry`, projectId: project.id, type: 'PROJECT_VIDEO_GEN', status: 'queued', progress: 0, provider: 'Gemini', costCredits: 0, createdAt: new Date().toISOString() });
+      }
+      db.updateJob(job.id, { status: 'queued', progress: 50 });
+      return;
+    }
+  }
+
+  const stageSequence = [
+    { stage: 'IDEA', nextType: ['MASTER_DIRECTOR_PLAN'], cost: 200, nextStageName: 'STORY_DEVELOPMENT' },
+    { stage: 'STORY_DEVELOPMENT', nextType: ['SCRIPT_GEN'], cost: 200, nextStageName: 'SCRIPT' },
+    { stage: 'SCRIPT', nextType: ['CHARACTER_GEN', 'WORLD_GEN'], cost: 500, nextStageName: 'CHARACTERS' },
+    { stage: 'CHARACTERS', nextType: ['CINEMATOGRAPHY_GEN'], cost: 300, nextStageName: 'STORYBOARD' },
+    { stage: 'STORYBOARD', nextType: ['PROJECT_VIDEO_GEN'], cost: 1500, nextStageName: 'VIDEO_GENERATION' },
+    { stage: 'VIDEO_GENERATION', nextType: ['VOICE_GEN', 'SOUND_GEN'], cost: 800, nextStageName: 'VOICE' },
+    { stage: 'VOICE', nextType: ['EDITOR_GEN'], cost: 400, nextStageName: 'EDITING' },
+    { stage: 'SOUND', nextType: ['EDITOR_GEN'], cost: 400, nextStageName: 'EDITING' },
+    { stage: 'EDITING', nextType: ['CONTINUITY_CHECK'], cost: 150, nextStageName: 'CONTINUITY' },
+    { stage: 'CONTINUITY', nextType: ['QC_CHECK'], cost: 150, nextStageName: 'QUALITY_CONTROL' },
+    { stage: 'QUALITY_CONTROL', nextType: ['FINAL_RENDER'], cost: 500, nextStageName: 'FINAL_RENDER' },
+  ];
+
+  const currentStep = stageSequence.find(s => s.stage === project.currentStage);
+  if (!currentStep) {
+    if (project.currentStage === 'FINAL_RENDER' || project.currentStage === 'DELIVERY') {
+      db.updateProject(project.id, { pipelineStatus: 'completed' });
+      db.updateJob(job.id, { status: 'completed', progress: 100 });
+      return;
+    }
+    db.updateJob(job.id, { status: 'queued', progress: 50 });
+    return;
+  }
+
+  const completed = project.pipelineCompletedStages || [];
+  
+  if (completed.includes(project.currentStage)) {
+    db.updateProject(project.id, { currentStage: currentStep.nextStageName as any });
+    db.updateJob(job.id, { status: 'queued', progress: 50 });
+    return;
+  }
+
+  for (const jobType of currentStep.nextType) {
+    db.reserveCredits(currentStep.cost, `Pipeline ${jobType}`, project.id);
+    db.addJob({
+      id: `job_${Date.now()}_${jobType}`,
+      projectId: project.id,
+      type: jobType as any,
+      status: 'queued',
+      progress: 0,
+      provider: 'AICraft Orchestrator',
+      costCredits: currentStep.cost,
+      createdAt: new Date().toISOString()
+    });
+  }
+
+  completed.push(project.currentStage);
+  db.updateProject(project.id, { pipelineCompletedStages: completed });
+
+  db.updateJob(job.id, { status: 'queued', progress: 50 });
+}

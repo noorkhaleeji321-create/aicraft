@@ -1,0 +1,646 @@
+{
+  "projects": [
+    {
+      "id": "proj_shadows_syndicate",
+      "name": "Shadows of the Syndicate",
+      "description": "A 20-minute cinematic story about a young boy searching for his older brother after discovering his involvement with a covert criminal organization.",
+      "userPrompt": "Create a 20-minute cinematic story about a young boy searching for his older brother after discovering that his brother was involved with a criminal organization.",
+      "genre": "Cinematic Crime Thriller",
+      "targetDurationMinutes": 20,
+      "estimatedDurationSeconds": 1200,
+      "actualDurationSeconds": 1185,
+      "aspectRatio": "16:9",
+      "visualStyle": "Dark Anamorphic Noir (35mm Film Grain, High Contrast Teal & Amber)",
+      "currentStage": "VIDEO_GENERATION",
+      "overallProgress": 65,
+      "createdAt": "2026-09-12T10:33:06.498Z",
+      "updatedAt": "2026-09-13T10:33:06.499Z",
+      "scenesCount": 12,
+      "shotsCount": 48,
+      "charactersCount": 3,
+      "locationsCount": 2,
+      "creditsUsed": 1450,
+      "creditsReserved": 350,
+      "renderStatus": "idle",
+      "provider": "veo-3.1-lite-generate-preview"
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene_1",
+      "projectId": "proj_shadows_syndicate",
+      "sceneNumber": 1,
+      "act": 1,
+      "sequence": 1,
+      "locationId": "loc_alleyway",
+      "locationName": "Neon Rain Alleyway",
+      "timeOfDay": "Night",
+      "characters": [
+        "Leo Vance"
+      ],
+      "action": "Leo runs through the rain-slicked alleyway clutching his brother Marcus's encrypted notebook. Rain splashes under his worn sneakers.",
+      "dialogue": [
+        {
+          "id": "d1",
+          "character": "Leo Vance",
+          "line": "Marcus... what have you gotten yourself into?",
+          "voiceTone": "Breathless whisper",
+          "duration": 4
+        }
+      ],
+      "narration": "Fourteen-year-old Leo never believed the rumors about the docks. Until tonight.",
+      "emotionalTone": "Tense, Urgent, Frightened",
+      "targetDuration": 90,
+      "shotIds": [
+        "shot_1A",
+        "shot_1B",
+        "shot_1C"
+      ],
+      "status": "completed",
+      "qcStatus": "PASS",
+      "continuityStatus": "OK"
+    },
+    {
+      "id": "scene_2",
+      "projectId": "proj_shadows_syndicate",
+      "sceneNumber": 2,
+      "act": 1,
+      "sequence": 2,
+      "locationId": "loc_warehouse",
+      "locationName": "Syndicate Docks Warehouse",
+      "timeOfDay": "Midnight",
+      "characters": [
+        "Leo Vance",
+        "Marcus Vance",
+        "Viktor Doyle"
+      ],
+      "action": "Leo watches from behind a iron gantry as Marcus stands face-to-face with Viktor Doyle near the center crates.",
+      "dialogue": [
+        {
+          "id": "d2",
+          "character": "Viktor Doyle",
+          "line": "You knew the rules, Marcus. No one walks away from the Syndicate.",
+          "voiceTone": "Cold, commanding",
+          "duration": 5
+        },
+        {
+          "id": "d3",
+          "character": "Marcus Vance",
+          "line": "Leave my brother out of this, Doyle!",
+          "voiceTone": "Defiant roar",
+          "duration": 4
+        }
+      ],
+      "narration": "",
+      "emotionalTone": "High Suspense, Threatening",
+      "targetDuration": 120,
+      "shotIds": [
+        "shot_2A"
+      ],
+      "status": "generating",
+      "qcStatus": "WARNING",
+      "continuityStatus": "OK"
+    }
+  ],
+  "shots": [
+    {
+      "id": "shot_1A",
+      "sceneId": "scene_1",
+      "projectId": "proj_shadows_syndicate",
+      "shotNumber": "1A",
+      "label": "Establishing Wide Shot of Alleyway",
+      "duration": 6,
+      "description": "Extreme wide shot looking down the narrow rain-slicked alleyway. Neon light reflects on wet asphalt.",
+      "cinematography": {
+        "shotType": "Establishing Shot",
+        "cameraPosition": "Low Angle Ground Level",
+        "cameraMovement": "Slow Forward Tracking",
+        "lens": "35mm Anamorphic",
+        "focalLength": "35mm",
+        "framing": "Wide Center Balanced",
+        "composition": "Rule of Thirds leading lines",
+        "depthOfField": "Deep Focus",
+        "focus": "Infinite",
+        "lighting": "Teal & Amber Neon Rim Lighting",
+        "colorTreatment": "High Contrast Cool Teal",
+        "exposure": "Standard Night (-1 EV)",
+        "perspective": "Objective Viewpoint",
+        "blocking": "Leo enters from upper left background running towards camera",
+        "subjectMovement": "Fast forward running",
+        "backgroundMovement": "Steam rising from manhole covers",
+        "cinematicStyle": "Cyberpunk Noir"
+      },
+      "characterIds": [
+        "char_leo"
+      ],
+      "locationId": "loc_alleyway",
+      "status": "completed",
+      "videoUrl": "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+      "thumbnailUrl": "https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=400&auto=format&fit=crop&q=80",
+      "providerJobId": "veo_job_1a_88921",
+      "providerName": "veo-3.1-lite-generate-preview",
+      "qualityScore": 94,
+      "generationAttempts": 1,
+      "createdAt": "2026-09-13T05:33:06.499Z",
+      "updatedAt": "2026-09-13T05:33:06.499Z"
+    },
+    {
+      "id": "shot_1B",
+      "sceneId": "scene_1",
+      "projectId": "proj_shadows_syndicate",
+      "shotNumber": "1B",
+      "label": "Tracking Medium Shot of Leo Running",
+      "duration": 5,
+      "description": "Medium side tracking shot keeping pace with Leo as rain streams down his face and navy hoodie.",
+      "cinematography": {
+        "shotType": "Tracking Shot",
+        "cameraPosition": "Eye Level Side Profile",
+        "cameraMovement": "Fast Parallel Tracking",
+        "lens": "50mm Prime",
+        "focalLength": "50mm",
+        "framing": "Medium Profile",
+        "composition": "Subject dynamic right facing",
+        "depthOfField": "Shallow Depth (f/2.0)",
+        "focus": "Follow Focus on Leo Face",
+        "lighting": "Dynamic passing neon light key",
+        "colorTreatment": "Desaturated Blue with Warm Highlights",
+        "exposure": "Standard",
+        "perspective": "Kinetic Subject Viewpoint",
+        "blocking": "Leo pushing through rain",
+        "subjectMovement": "Sprinting",
+        "backgroundMovement": "Blurred brick walls and fire escapes",
+        "cinematicStyle": "High Kinetic Action"
+      },
+      "characterIds": [
+        "char_leo"
+      ],
+      "locationId": "loc_alleyway",
+      "status": "completed",
+      "videoUrl": "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+      "thumbnailUrl": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&auto=format&fit=crop&q=80",
+      "providerJobId": "veo_job_1b_88922",
+      "providerName": "veo-3.1-lite-generate-preview",
+      "qualityScore": 92,
+      "generationAttempts": 1,
+      "createdAt": "2026-09-13T06:33:06.499Z",
+      "updatedAt": "2026-09-13T06:33:06.499Z"
+    },
+    {
+      "id": "shot_1C",
+      "sceneId": "scene_1",
+      "projectId": "proj_shadows_syndicate",
+      "shotNumber": "1C",
+      "label": "Close-Up of Encrypted Notebook",
+      "duration": 4,
+      "description": "Tight close-up shot of Leo clutching the leather-bound notebook showing the embossed Syndicate insignia.",
+      "cinematography": {
+        "shotType": "Close-up",
+        "cameraPosition": "Slight High Angle",
+        "cameraMovement": "Handheld Subtle Shake",
+        "lens": "85mm Macro",
+        "focalLength": "85mm",
+        "framing": "Extreme Tight Focus",
+        "composition": "Insignia centered",
+        "depthOfField": "Very Shallow (f/1.4)",
+        "focus": "Book Cover Insignia",
+        "lighting": "Harsh overhead neon pulse",
+        "colorTreatment": "Deep Amber Gold Accent",
+        "exposure": "Standard",
+        "perspective": "Detail Focus",
+        "blocking": "Leo hands tightly grasping leather",
+        "subjectMovement": "Trembling hands",
+        "backgroundMovement": "Out of focus rain drop trails",
+        "cinematicStyle": "Macro Detail Suspense"
+      },
+      "characterIds": [
+        "char_leo"
+      ],
+      "locationId": "loc_alleyway",
+      "status": "completed",
+      "videoUrl": "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
+      "thumbnailUrl": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400&auto=format&fit=crop&q=80",
+      "providerJobId": "veo_job_1c_88923",
+      "providerName": "veo-3.1-lite-generate-preview",
+      "qualityScore": 96,
+      "generationAttempts": 1,
+      "createdAt": "2026-09-13T07:33:06.499Z",
+      "updatedAt": "2026-09-13T07:33:06.499Z"
+    },
+    {
+      "id": "shot_2A",
+      "sceneId": "scene_2",
+      "projectId": "proj_shadows_syndicate",
+      "shotNumber": "2A",
+      "label": "Establishing Overhead Crane Shot of Warehouse Docks",
+      "duration": 7,
+      "description": "Slow descending crane shot inside the cavernous warehouse, revealing Marcus standing before Viktor Doyle.",
+      "cinematography": {
+        "shotType": "Crane Shot",
+        "cameraPosition": "High Gantry Level descending to Eye Level",
+        "cameraMovement": "Crane Boom Down and Tilt Up",
+        "lens": "24mm Wide",
+        "focalLength": "24mm",
+        "framing": "Wide Dual Subject Facing",
+        "composition": "Symmetrical Warehouse Pillars",
+        "depthOfField": "Deep Focus",
+        "focus": "Marcus & Doyle Interaction Center",
+        "lighting": "High Contrast Blue Sodium Lights",
+        "colorTreatment": "Cold Cyan with Steel Gray Shadow",
+        "exposure": "Standard",
+        "perspective": "God's Eye View descending",
+        "blocking": "Marcus left standing defiant, Doyle right backed by 2 armed guards",
+        "subjectMovement": "Static confrontation stance",
+        "backgroundMovement": "Dust motes in blue light shafts",
+        "cinematicStyle": "Epic Architectural Tension"
+      },
+      "characterIds": [
+        "char_marcus",
+        "char_doyle"
+      ],
+      "locationId": "loc_warehouse",
+      "status": "generating",
+      "providerJobId": "veo_job_2a_99010",
+      "providerName": "veo-3.1-lite-generate-preview",
+      "qualityScore": 88,
+      "generationAttempts": 1,
+      "createdAt": "2026-09-13T10:03:06.499Z",
+      "updatedAt": "2026-09-13T10:23:06.499Z"
+    }
+  ],
+  "characters": [
+    {
+      "id": "char_leo",
+      "projectId": "proj_shadows_syndicate",
+      "name": "Leo Vance",
+      "age": 14,
+      "appearance": "Lean teenage boy with messy dark brown hair, determined hazel eyes, wearing a faded navy hoodie over a grey graphic shirt.",
+      "faceDescription": "Sharp jawline, youthfully soft features, subtle freckles across nose bridge.",
+      "hair": "Messy dark brown curly crop, slightly unkempt.",
+      "clothing": "Navy blue zipped hoodie, grey inner shirt, dark denim jeans, worn canvas sneakers.",
+      "bodyCharacteristics": "Slender build, 5ft 6in tall.",
+      "personality": "Resilient, fiercely loyal, observant, cautious yet brave.",
+      "voiceCharacteristics": "Youthful tenor, warm yet nervous tremor during intense scenes.",
+      "voiceName": "Puck",
+      "emotionalCharacteristics": "Driven by brotherhood love and anxiety.",
+      "referenceImageUrl": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&auto=format&fit=crop&q=80",
+      "consistencyNotes": "Keep navy hoodie zipper halfway down in all exterior night shots."
+    },
+    {
+      "id": "char_marcus",
+      "projectId": "proj_shadows_syndicate",
+      "name": "Marcus Vance",
+      "age": 22,
+      "appearance": "Tall young man, muscular build, short cropped black hair, intense dark eyes, subtle scar over left eyebrow.",
+      "faceDescription": "Strong square jaw, stoic expression, thin scar through left eyebrow.",
+      "hair": "Short buzzcut black hair.",
+      "clothing": "Charcoal tactical leather jacket, black turtleneck, dark boots.",
+      "bodyCharacteristics": "Broad shoulders, 6ft 1in tall.",
+      "personality": "Protective, conflicted, secretive, brooding.",
+      "voiceCharacteristics": "Deep baritone, authoritative yet strained.",
+      "voiceName": "Fenrir",
+      "emotionalCharacteristics": "Guilt-ridden trying to shield Leo from harm.",
+      "referenceImageUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&auto=format&fit=crop&q=80",
+      "consistencyNotes": "Scar on left eyebrow must remain visible in all close-up shots."
+    },
+    {
+      "id": "char_doyle",
+      "projectId": "proj_shadows_syndicate",
+      "name": "Viktor Doyle",
+      "age": 52,
+      "appearance": "Imposing syndicate boss with silver hair, cold grey eyes, wearing a tailored charcoal wool coat with gold lapel pin.",
+      "faceDescription": "Weathered face, sharp cheekbones, cold calculated stare.",
+      "hair": "Slicked back silver hair.",
+      "clothing": "Tailored charcoal wool coat, white dress shirt, burgundy silk tie.",
+      "bodyCharacteristics": "Stately frame, 6ft 0in tall.",
+      "personality": "Ruthless, calculating, elegant, unyielding.",
+      "voiceCharacteristics": "Low smooth baritone with icy precision.",
+      "voiceName": "Zephyr",
+      "emotionalCharacteristics": "Dominant control.",
+      "referenceImageUrl": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600&auto=format&fit=crop&q=80",
+      "consistencyNotes": "Gold crest lapel pin must always be on left collar."
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc_alleyway",
+      "projectId": "proj_shadows_syndicate",
+      "name": "Neon Rain Alleyway",
+      "type": "exterior",
+      "description": "Narrow industrial city alleyway drenched in rain with wet reflective asphalt and glowing amber neon signage.",
+      "environmentStyle": "Neo-Noir Cyberpunk Alley",
+      "timeOfDay": "Night",
+      "weather": "Heavy Rain & Fog",
+      "backgroundDetails": "Fire escapes, steam vents, dripping gutters, discarded metal drums.",
+      "props": [
+        "Steam vents",
+        "Reflective puddles",
+        "Weathered brick walls"
+      ],
+      "vehicles": [
+        "Black sedan parked in shadows"
+      ],
+      "referenceImageUrl": "https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=600&auto=format&fit=crop&q=80"
+    },
+    {
+      "id": "loc_warehouse",
+      "projectId": "proj_shadows_syndicate",
+      "name": "Syndicate Docks Warehouse",
+      "type": "interior",
+      "description": "Cavernous abandoned shipping warehouse lit by blue overhead sodium lights and shafts of moonlight through broken skylights.",
+      "environmentStyle": "Industrial Warehouse Noir",
+      "timeOfDay": "Midnight",
+      "weather": "Indoors / Cold",
+      "backgroundDetails": "Stacked shipping crates, rusted steel gantries, hanging chain hoists.",
+      "props": [
+        "Wooden pallets",
+        "Metal shipping containers",
+        "Surveillance monitors"
+      ],
+      "vehicles": [
+        "Forklift in background"
+      ],
+      "referenceImageUrl": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&auto=format&fit=crop&q=80"
+    }
+  ],
+  "jobs": [],
+  "tasks": [],
+  "wallet": {
+    "available": 8200,
+    "reserved": 350,
+    "used": 1450,
+    "totalGranted": 10000
+  },
+  "transactions": [
+    {
+      "id": "tx_1",
+      "amount": 500,
+      "type": "CHARGE",
+      "description": "Script & Multi-Agent Master Director Planning",
+      "timestamp": "2026-09-12T10:33:06.499Z"
+    },
+    {
+      "id": "tx_2",
+      "amount": 450,
+      "type": "CHARGE",
+      "description": "Character & World Bibles Generation",
+      "timestamp": "2026-09-12T14:33:06.499Z"
+    },
+    {
+      "id": "tx_3",
+      "amount": 500,
+      "type": "CHARGE",
+      "description": "Veo Video Shot Generation (Shots 1A, 1B, 1C)",
+      "timestamp": "2026-09-13T05:33:06.499Z"
+    },
+    {
+      "id": "tx_4",
+      "amount": 350,
+      "type": "RESERVE",
+      "description": "Veo Shot 2A Video Generation Reservation",
+      "timestamp": "2026-09-13T10:03:06.499Z"
+    }
+  ],
+  "qcReports": [
+    {
+      "id": "qc_shadows_1",
+      "projectId": "proj_shadows_syndicate",
+      "timestamp": "2026-09-13T10:03:06.499Z",
+      "visualChecks": [
+        {
+          "category": "Visual",
+          "item": "Video Resolution & 16:9 Aspect Ratio",
+          "status": "PASS",
+          "note": "All completed shots output 1080p 16:9 MP4"
+        },
+        {
+          "category": "Visual",
+          "item": "Character Visual Consistency (Leo Vance)",
+          "status": "PASS",
+          "note": "Navy hoodie and hair match character bible 98%"
+        },
+        {
+          "category": "Visual",
+          "item": "Shot 2A Frame Generation Status",
+          "status": "WARNING",
+          "note": "Shot 2A currently rendering on Veo pipeline"
+        }
+      ],
+      "audioChecks": [
+        {
+          "category": "Audio",
+          "item": "Voice Dialogue Sync",
+          "status": "PASS",
+          "note": "Gemini TTS Puck voice matched to 4.0s duration"
+        },
+        {
+          "category": "Audio",
+          "item": "Loudness Normalization",
+          "status": "PASS",
+          "note": "Normalized to -14 LUFS"
+        }
+      ],
+      "storyChecks": [
+        {
+          "category": "Story",
+          "item": "Scene Progression & Pacing",
+          "status": "PASS",
+          "note": "Act 1 scenes match 20-min target structure"
+        }
+      ],
+      "technicalChecks": [
+        {
+          "category": "Technical",
+          "item": "Codec Compatibility & FPS",
+          "status": "PASS",
+          "note": "H.264 / AAC 24fps verified"
+        }
+      ],
+      "overallStatus": "PASS",
+      "targetRegenerations": []
+    }
+  ],
+  "continuityReports": [
+    {
+      "id": "cont_shadows_1",
+      "projectId": "proj_shadows_syndicate",
+      "timestamp": "2026-09-13T10:03:06.499Z",
+      "issues": [
+        {
+          "shotId": "shot_1C",
+          "sceneNumber": 1,
+          "shotLabel": "Close-Up of Encrypted Notebook",
+          "issueType": "clothing",
+          "description": "Sleeve cuff color in Shot 1C shows dark gray instead of navy blue hoodie sleeve.",
+          "recommendation": "Targeted prompt addition: \"Ensure Leo wears navy blue hoodie sleeves around wrist area\"."
+        }
+      ]
+    }
+  ],
+  "logs": [
+    {
+      "id": "log_1",
+      "timestamp": "2026-09-13T08:33:06.499Z",
+      "agent": "MASTER_DIRECTOR",
+      "level": "info",
+      "message": "Master Director initialized 20-minute production plan: 12 acts/scenes, 48 shots total."
+    },
+    {
+      "id": "log_2",
+      "timestamp": "2026-09-13T08:45:06.499Z",
+      "agent": "SCRIPT",
+      "level": "success",
+      "message": "Script Agent generated 12 complete scenes with dialogue & narration."
+    },
+    {
+      "id": "log_3",
+      "timestamp": "2026-09-13T09:03:06.499Z",
+      "agent": "CHARACTER",
+      "level": "success",
+      "message": "Character Agent established persistent bibles for Leo, Marcus, and Viktor Doyle."
+    },
+    {
+      "id": "log_4",
+      "timestamp": "2026-09-13T09:21:06.499Z",
+      "agent": "WORLD",
+      "level": "success",
+      "message": "World Agent established location specs for Alleyway and Docks Warehouse."
+    },
+    {
+      "id": "log_5",
+      "timestamp": "2026-09-13T10:03:06.499Z",
+      "agent": "VIDEO_GENERATION",
+      "level": "info",
+      "message": "Veo Generation job veo_job_2a_99010 queued for processing."
+    }
+  ],
+  "agents": [
+    {
+      "type": "MASTER_DIRECTOR",
+      "name": "Master Director",
+      "role": "Pipeline Director & Central Intelligence",
+      "avatarIcon": "Film",
+      "status": "idle"
+    },
+    {
+      "type": "SCRIPT",
+      "name": "Script Agent",
+      "role": "Screenplay, Acts & Dialogue Writer",
+      "avatarIcon": "FileText",
+      "status": "idle"
+    },
+    {
+      "type": "CHARACTER",
+      "name": "Character Agent",
+      "role": "Character Bibles & Face Consistency",
+      "avatarIcon": "User",
+      "status": "idle"
+    },
+    {
+      "type": "WORLD",
+      "name": "World Agent",
+      "role": "Environment & Location Architect",
+      "avatarIcon": "Globe",
+      "status": "idle"
+    },
+    {
+      "type": "CINEMATOGRAPHY",
+      "name": "Cinematography Agent",
+      "role": "Camera Language & Lens Framing",
+      "avatarIcon": "Camera",
+      "status": "idle"
+    },
+    {
+      "type": "VIDEO_GENERATION",
+      "name": "Video Gen Agent",
+      "role": "Veo Provider & Shot Renderer",
+      "avatarIcon": "Video",
+      "status": "idle"
+    },
+    {
+      "type": "VOICE",
+      "name": "Voice Agent",
+      "role": "Dialogue Sync & Gemini TTS",
+      "avatarIcon": "Mic",
+      "status": "idle"
+    },
+    {
+      "type": "SOUND",
+      "name": "Sound Agent",
+      "role": "Foley, Ambient & Lyria Music",
+      "avatarIcon": "Music",
+      "status": "idle"
+    },
+    {
+      "type": "EDITOR",
+      "name": "Editor Agent",
+      "role": "Multi-track NLE & Pacing",
+      "avatarIcon": "Sliders",
+      "status": "idle"
+    },
+    {
+      "type": "CONTINUITY",
+      "name": "Continuity Agent",
+      "role": "Visual & Scene Consistency Validator",
+      "avatarIcon": "Eye",
+      "status": "idle"
+    },
+    {
+      "type": "QUALITY_CONTROL",
+      "name": "QC Agent",
+      "role": "Audio/Video Integrity Inspector",
+      "avatarIcon": "ShieldCheck",
+      "status": "idle"
+    },
+    {
+      "type": "PRODUCTION_MEMORY",
+      "name": "Memory Agent",
+      "role": "Project Knowledge & Asset Store",
+      "avatarIcon": "Database",
+      "status": "idle"
+    }
+  ],
+  "providers": [
+    {
+      "name": "Google Veo 3.1 Lite",
+      "type": "video",
+      "status": "operational",
+      "latencyMs": 320,
+      "activeJobs": 0
+    },
+    {
+      "name": "Google Veo 3.1 Pro",
+      "type": "video",
+      "status": "operational",
+      "latencyMs": 450,
+      "activeJobs": 0
+    },
+    {
+      "name": "Gemini 3.8 Flash (LLM)",
+      "type": "llm",
+      "status": "operational",
+      "latencyMs": 140,
+      "activeJobs": 0
+    },
+    {
+      "name": "Gemini 3.1 Flash TTS",
+      "type": "tts",
+      "status": "operational",
+      "latencyMs": 210,
+      "activeJobs": 0
+    },
+    {
+      "name": "Lyria 3 Clip Music",
+      "type": "music",
+      "status": "operational",
+      "latencyMs": 280,
+      "activeJobs": 0
+    },
+    {
+      "name": "Local Asset Store",
+      "type": "storage",
+      "status": "operational",
+      "latencyMs": 12,
+      "activeJobs": 0
+    }
+  ]
+}
