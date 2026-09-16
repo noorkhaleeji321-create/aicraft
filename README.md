@@ -18,3 +18,4 @@ View your app in AI Studio: https://ai.studio/apps/78ed7a8f-e9c9-4a7e-bc1f-c8c10
 2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
 3. Run the app:
    `npm run dev`
+# aicraft
